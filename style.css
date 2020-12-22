@@ -1,6 +1,16 @@
-#canvas{
-  background-color: white;
+#canvas-1{
+  background-color: rgb(239, 247, 171);
+  cursor: pointer;
 }
+#canvas-2{
+  background-color:rgb(138, 166, 250);
+  cursor: pointer;
+}
+#canvas-3{
+  background-color: rgb(255, 192, 252);
+  cursor: pointer;
+}
+
 
 .container{
   background-color: black;
