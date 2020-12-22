@@ -1,11 +1,9 @@
-function loadImages(){
-  const image =  new Image();
-  image.src = 'icons/rock.png';
-  const pic = document.getElementById('rockPic');
-  image.onload = function(){
-  const ctxPic = pic.getContext('2d');
-  ctxPic.drawImage(image, 0, 0);
- }
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+function loadImage(){
+  const img = new Image();
+  img.src = 'icons/rock.png';
+  img.onload = () => {
+  ctx.drawImage(img, 0, 0)
+  }
 }
-
-loadImages();
