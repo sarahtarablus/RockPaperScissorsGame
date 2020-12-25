@@ -1,11 +1,18 @@
 const rock = document.getElementById('canvas-1');
 const paper = document.getElementById('canvas-2');
 const scissors = document.getElementById('canvas-3');
+const choice = document.querySelector('.computersChoice');
+const result = document.querySelector('.result');
 
 const ctx1 = rock.getContext('2d');
 const ctx2 = paper.getContext('2d');
 const ctx3 = scissors.getContext('2d');
 
+window.onload = () => {
+loadRockImage('./rock.png', 130, 30);
+loadPaperImage('./paper.png', 70, 30);
+loadScissorsImage('./scissors.png', 70, 30);
+}
 
 function loadRockImage(imgSrc, sx1, sy1){
   const img = new Image();
@@ -23,9 +30,6 @@ function loadRockImage(imgSrc, sx1, sy1){
   }
 }
 
-loadRockImage('./rock.png', 130, 30);
-
-
 function loadPaperImage(imgSrc, sx1, sy1){
   const img = new Image();
   img.src = imgSrc;
@@ -41,8 +45,6 @@ function loadPaperImage(imgSrc, sx1, sy1){
   ctx2.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
   }
 }
-
-loadPaperImage('./paper.png', 70, 30);
 
 function loadScissorsImage(imgSrc, sx1, sy1){
   const img = new Image();
@@ -60,21 +62,14 @@ function loadScissorsImage(imgSrc, sx1, sy1){
   }
 }
 
-loadScissorsImage('./scissors.png', 70, 30);
-
 rock.addEventListener('click', rockChoice);
 paper.addEventListener('click', paperChoice);
 scissors.addEventListener('click', scissorsChoice);
 
 function rockChoice(e){
   e.preventDefault();
-  
-let elements = ['rock', 'paper', 'scissors'];
-let computersChoice = elements[Math.floor(Math.random() * elements.length)];
-console.log(computersChoice);
-  const choice = document.querySelector('.computersChoice');
-  const result = document.querySelector('.result');
-  
+  let elements = ['rock', 'paper', 'scissors'];
+  let computersChoice = elements[Math.floor(Math.random() * elements.length)];
   if(computersChoice  === 'rock'){
     choice.innerHTML = `The computer chose: ${computersChoice}`;
     result.innerHTML = 'Stalemate';
@@ -92,13 +87,8 @@ console.log(computersChoice);
 
 function paperChoice(e){
   e.preventDefault();
-  
-let elements = ['rock', 'paper', 'scissors'];
-let computersChoice = elements[Math.floor(Math.random() * elements.length)];
-console.log(computersChoice);
-  const choice = document.querySelector('.computersChoice');
-  const result = document.querySelector('.result');
-  
+  let elements = ['rock', 'paper', 'scissors'];
+  let computersChoice = elements[Math.floor(Math.random() * elements.length)];
   if(computersChoice  === 'rock'){
     choice.innerHTML = `The computer chose: ${computersChoice}`;
     result.innerHTML = 'You Won!'
@@ -114,16 +104,10 @@ console.log(computersChoice);
   } 
 }
 
-
 function scissorsChoice(e){
   e.preventDefault();
-  
-let elements = ['rock', 'paper', 'scissors'];
-let computersChoice = elements[Math.floor(Math.random() * elements.length)];
-console.log(computersChoice);
-  const choice = document.querySelector('.computersChoice');
-  const result = document.querySelector('.result');
-  
+  let elements = ['rock', 'paper', 'scissors'];
+  let computersChoice = elements[Math.floor(Math.random() * elements.length)];
   if(computersChoice  === 'rock'){
     choice.innerHTML = `The computer chose: ${computersChoice}`;
     result.innerHTML = 'Sorry you lost!';
